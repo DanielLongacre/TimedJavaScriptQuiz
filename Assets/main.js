@@ -133,6 +133,41 @@ function question3() {
                 <p>Wrong!</p>
             `;
         }
+        question4();
+    });
+
+}
+
+//Question 4 function
+function question4() {
+    var main = document.querySelector("#display");
+    main.innerHTML = ``;
+    main.innerHTML += `
+        <h1>String values must be enclosed within _______ when being assigned to variables:</h1>
+        <ol>
+            <li><button id="wrong">Commas</button></li>
+            <li><button id="correct">Quotes</button></li>
+            <li><button id="wrong">Curly braces</button></li>
+            <li><button id="wrong">Parenthesis</button></li>
+        </ol>
+        <br>
+    `
+    var answer = document.querySelector("#correct");
+    var incorrect = document.querySelector("#wrong");
+
+    answer.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        if(answer) {
+            main.innerHTML += `
+                <p>Correct!</p>
+            `;
+        } 
+        else if (incorrect) {
+            main.innerHTML += `
+                <p>Wrong!</p>
+            `;
+        }
     });
 
 }
