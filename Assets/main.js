@@ -2,10 +2,33 @@ var timer = document.querySelector("#timer");
 var body = document.querySelector("#display");
 var startButton = document.querySelector("#start");
 
-//Start Quiz function
+timer.textContent = "Time: " + 75;
+var secondsLeft = 75;
 
+function setTime() {
+  // Sets interval in variable
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+    timer.textContent = "Time: " + secondsLeft;
+
+    if(secondsLeft === 0) {
+      // Stops execution of action at set interval
+      clearInterval(timerInterval);
+      // Calls function to list score
+      //Still need to create this function
+    }
+
+  }, 1000);
+}
+
+
+
+//Start Quiz function
 startButton.addEventListener("click", function() {
+    //Start the quiz by showing the first question
     question1();
+    //Start the timer
+    setTime();
 });
 
 
@@ -56,6 +79,41 @@ function question2() {
             <li><button id="wrong">Curly Brackets</button></li>
             <li><button id="wrong">Quotes</button></li>
             <li><button id="wrong">Square Brackets</button></li>
+        </ol>
+        <br>
+    `
+    var answer = document.querySelector("#correct");
+    var incorrect = document.querySelector("#wrong");
+
+    answer.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        if(answer) {
+            main.innerHTML += `
+                <p>Correct!</p>
+            `;
+        } 
+        else if (incorrect) {
+            main.innerHTML += `
+                <p>Wrong!</p>
+            `;
+        }
+        question3();
+    });
+
+}
+
+//Question 3 function
+function question3() {
+    var main = document.querySelector("#display");
+    main.innerHTML = ``;
+    main.innerHTML += `
+        <h1>Arrays in JavaScript can be used to store _______:</h1>
+        <ol>
+            <li><button id="wrong">Numbers and Strings</button></li>
+            <li><button id="wrong">Other Arrays</button></li>
+            <li><button id="wrong">Booleans</button></li>
+            <li><button id="correct">All of the above</button></li>
         </ol>
         <br>
     `
