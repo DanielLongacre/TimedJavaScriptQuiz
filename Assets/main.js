@@ -3,8 +3,12 @@ var timer = document.querySelector("#timer");
 var main = document.querySelector("#display");
 var startButton = document.querySelector("#start");
 
+//Setting timer
 timer.textContent = "Time: " + 75;
 var secondsLeft = 75;
+
+//Setting score variable
+var score = 0;
 
 function setTime() {
   // Sets interval in variable
@@ -16,7 +20,7 @@ function setTime() {
       // Stops execution of action at set interval
       clearInterval(timerInterval);
       // Calls function to list score
-      //Still need to create this function
+      results(0);
     }
 
   }, 1000);
@@ -52,11 +56,11 @@ function question1() {
     var incorrect = document.querySelector("#wrong");
 
     incorrect.addEventListener("click", function() {
-        // preventDefault();
         if (incorrect) {
             main.innerHTML += `
                 <p>Wrong!</p>
             `;
+            secondsLeft -= 10;
         }
         question2();
     });
@@ -91,6 +95,16 @@ function question2() {
     var answer = document.querySelector("#correct");
     var incorrect = document.querySelector("#wrong");
 
+    incorrect.addEventListener("click", function() {
+        if (incorrect) {
+            main.innerHTML += `
+                <p>Wrong!</p>
+            `;
+            secondsLeft -= 10;
+        }
+        question3();
+    });
+
     answer.addEventListener("click", function(event) {
         event.preventDefault();
 
@@ -99,11 +113,6 @@ function question2() {
                 <p>Correct!</p>
             `;
         } 
-        else if (incorrect) {
-            main.innerHTML += `
-                <p>Wrong!</p>
-            `;
-        }
         question3();
     });
 
@@ -126,6 +135,16 @@ function question3() {
     var answer = document.querySelector("#correct");
     var incorrect = document.querySelector("#wrong");
 
+    incorrect.addEventListener("click", function() {
+        if (incorrect) {
+            main.innerHTML += `
+                <p>Wrong!</p>
+            `;
+            secondsLeft -= 10;
+        }
+        question4();
+    });
+
     answer.addEventListener("click", function(event) {
         event.preventDefault();
 
@@ -134,11 +153,6 @@ function question3() {
                 <p>Correct!</p>
             `;
         } 
-        else if (incorrect) {
-            main.innerHTML += `
-                <p>Wrong!</p>
-            `;
-        }
         question4();
     });
 
@@ -161,6 +175,16 @@ function question4() {
     var answer = document.querySelector("#correct");
     var incorrect = document.querySelector("#wrong");
 
+    incorrect.addEventListener("click", function() {
+        if (incorrect) {
+            main.innerHTML += `
+                <p>Wrong!</p>
+            `;
+            secondsLeft -= 10;
+        }
+        question5();
+    });
+
     answer.addEventListener("click", function(event) {
         event.preventDefault();
 
@@ -169,11 +193,6 @@ function question4() {
                 <p>Correct!</p>
             `;
         } 
-        else if (incorrect) {
-            main.innerHTML += `
-                <p>Wrong!</p>
-            `;
-        }
         question5();
     });
 
@@ -196,6 +215,17 @@ function question5() {
     var answer = document.querySelector("#correct");
     var incorrect = document.querySelector("#wrong");
 
+    incorrect.addEventListener("click", function() {
+        if (incorrect) {
+            main.innerHTML += `
+                <p>Wrong!</p>
+            `;
+            secondsLeft -= 10;
+            score = secondsLeft;
+        }
+        results(score);
+    });
+
     answer.addEventListener("click", function(event) {
         event.preventDefault();
 
@@ -204,12 +234,8 @@ function question5() {
                 <p>Correct!</p>
             `;
         } 
-        else if (incorrect) {
-            main.innerHTML += `
-                <p>Wrong!</p>
-            `;
-        }
-        results();
+        score = secondsLeft;
+        results(score);
     });
 
 }
