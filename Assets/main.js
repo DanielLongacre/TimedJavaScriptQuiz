@@ -104,17 +104,37 @@ function question2() {
         <h1>The condition in an if / else statement is enclosed with _______:</h1>
         <ol>
             <li><button id="correct">Parenthesis</button></li>
-            <li><button id="wrong">Curly Brackets</button></li>
-            <li><button id="wrong">Quotes</button></li>
-            <li><button id="wrong">Square Brackets</button></li>
+            <li><button id="wrong1">Curly Brackets</button></li>
+            <li><button id="wrong2">Quotes</button></li>
+            <li><button id="wrong3">Square Brackets</button></li>
         </ol>
         <br>
     `
     var answer = document.querySelector("#correct");
-    var incorrect = document.querySelector("#wrong");
+    var wrong1 = document.querySelector("#wrong1");
+    var wrong2 = document.querySelector("#wrong2");
+    var wrong3 = document.querySelector("#wrong3");
 
-    incorrect.addEventListener("click", function() {
-        if (incorrect) {
+    wrong1.addEventListener("click", function() {
+        if (wrong1) {
+            main.innerHTML += `
+                <p>Wrong!</p>
+            `;
+            secondsLeft -= 10;
+        }
+        question3();
+    });
+    wrong2.addEventListener("click", function() {
+        if (wrong2) {
+            main.innerHTML += `
+                <p>Wrong!</p>
+            `;
+            secondsLeft -= 10;
+        }
+        question3();
+    });
+    wrong3.addEventListener("click", function() {
+        if (wrong3) {
             main.innerHTML += `
                 <p>Wrong!</p>
             `;
