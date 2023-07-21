@@ -277,9 +277,9 @@ function question5() {
     main.innerHTML += `
         <h1>A very useful tool used during development and debugging for printing content to the debugger is:</h1>
         <ol>
-            <li><button id="wrong">JavaScript</button></li>
-            <li><button id="wrong">Terminal/Bash</button></li>
-            <li><button id="wrong">For Loops</button></li>
+            <li><button id="wrong1">JavaScript</button></li>
+            <li><button id="wrong2">Terminal/Bash</button></li>
+            <li><button id="wrong3">For Loops</button></li>
             <li><button id="correct">Console Log</button></li>
         </ol>
         <br>
@@ -344,9 +344,7 @@ function results(score) {
     var myScore = document.querySelector("#submitScore");
     
     myScore.addEventListener("click", function() {
-    
-
-    highScores();    
+        highScores();    
     });
 }
 
@@ -360,12 +358,26 @@ function highScores() {
             <li>This will be a list of top scores descending in score</li>
         </ol>
         <button id="homePage">Go back</button>
-        <button>Clear high scores</button>
+        <button id="clearBoard">Clear high scores</button>
     `
-
+    //Variables for buttons
     var homePage = document.querySelector("#homePage");
+    var clearScores = document.querySelector("#clearBoard");
 
     homePage.addEventListener("click", function() {
         location.reload();
+    });
+
+    clearScores.addEventListener("click", function() {
+        var main = document.querySelector("#display");
+        main.innerHTML = ``;
+        main.innerHTML += `
+            <h1>Highscores</h1>
+            <ol>
+                
+            </ol>
+            <button id="homePage">Go back</button>
+            <button id="clearBoard">Clear high scores</button>
+        `
     });
 }
