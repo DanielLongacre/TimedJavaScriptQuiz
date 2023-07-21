@@ -216,10 +216,27 @@ function results(score) {
         <h1>All done!</h1>
         <p>Your final score is ${score}</p>
         
-            <label for="initials">Enter initials:</label>
-            <input type="text" id="initials">
-            <button id="submitScore">Submit</button>
-        
+        <label for="initials">Enter initials:</label>
+        <input type="text" id="initials">
+        <button id="submitScore">Submit</button>
     `
+    var myScore = document.querySelector("#submitScore");
+    
+    myScore.addEventListener("click", function() {
+    
 
+    highScores();    
+    });
+}
+
+//High Scores Page
+function highScores() {
+    var main = document.querySelector("#display");
+    main.innerHTML = ``;
+    main.innerHTML += `
+        <h1>Highscores</h1>
+        <ol>
+            <li>This will be a list of top scores descneding in score</li>
+        </ol>
+    `
 }
