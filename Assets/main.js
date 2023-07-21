@@ -51,6 +51,16 @@ function question1() {
     var answer = document.querySelector("#correct");
     var incorrect = document.querySelector("#wrong");
 
+    incorrect.addEventListener("click", function() {
+        // preventDefault();
+        if (incorrect) {
+            main.innerHTML += `
+                <p>Wrong!</p>
+            `;
+        }
+        question2();
+    });
+
     answer.addEventListener("click", function(event) {
         event.preventDefault();
 
@@ -59,11 +69,6 @@ function question1() {
                 <p>Correct!</p>
             `;
         } 
-        if (incorrect) {
-            main.innerHTML += `
-                <p>Wrong!</p>
-            `;
-        }
         question2();
     });
 
