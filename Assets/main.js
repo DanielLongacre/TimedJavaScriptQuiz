@@ -161,18 +161,38 @@ function question3() {
     main.innerHTML += `
         <h1>Arrays in JavaScript can be used to store _______:</h1>
         <ol>
-            <li><button id="wrong">Numbers and Strings</button></li>
-            <li><button id="wrong">Other Arrays</button></li>
-            <li><button id="wrong">Booleans</button></li>
+            <li><button id="wrong1">Numbers and Strings</button></li>
+            <li><button id="wrong2">Other Arrays</button></li>
+            <li><button id="wrong3">Booleans</button></li>
             <li><button id="correct">All of the above</button></li>
         </ol>
         <br>
     `
     var answer = document.querySelector("#correct");
-    var incorrect = document.querySelector("#wrong");
+    var wrong1 = document.querySelector("#wrong1");
+    var wrong2 = document.querySelector("#wrong2");
+    var wrong3 = document.querySelector("#wrong3");
 
-    incorrect.addEventListener("click", function() {
-        if (incorrect) {
+    wrong1.addEventListener("click", function() {
+        if (wrong1) {
+            main.innerHTML += `
+                <p>Wrong!</p>
+            `;
+            secondsLeft -= 10;
+        }
+        question4();
+    });
+    wrong2.addEventListener("click", function() {
+        if (wrong2) {
+            main.innerHTML += `
+                <p>Wrong!</p>
+            `;
+            secondsLeft -= 10;
+        }
+        question4();
+    });
+    wrong3.addEventListener("click", function() {
+        if (wrong3) {
             main.innerHTML += `
                 <p>Wrong!</p>
             `;
@@ -199,18 +219,38 @@ function question4() {
     main.innerHTML += `
         <h1>String values must be enclosed within _______ when being assigned to variables:</h1>
         <ol>
-            <li><button id="wrong">Commas</button></li>
+            <li><button id="wrong1">Commas</button></li>
             <li><button id="correct">Quotes</button></li>
-            <li><button id="wrong">Curly braces</button></li>
-            <li><button id="wrong">Parenthesis</button></li>
+            <li><button id="wrong2">Curly braces</button></li>
+            <li><button id="wrong3">Parenthesis</button></li>
         </ol>
         <br>
     `
     var answer = document.querySelector("#correct");
-    var incorrect = document.querySelector("#wrong");
+    var wrong1 = document.querySelector("#wrong1");
+    var wrong2 = document.querySelector("#wrong2");
+    var wrong3 = document.querySelector("#wrong3");
 
-    incorrect.addEventListener("click", function() {
-        if (incorrect) {
+    wrong1.addEventListener("click", function() {
+        if (wrong1) {
+            main.innerHTML += `
+                <p>Wrong!</p>
+            `;
+            secondsLeft -= 10;
+        }
+        question5();
+    });
+    wrong2.addEventListener("click", function() {
+        if (wrong2) {
+            main.innerHTML += `
+                <p>Wrong!</p>
+            `;
+            secondsLeft -= 10;
+        }
+        question5();
+    });
+    wrong3.addEventListener("click", function() {
+        if (wrong3) {
             main.innerHTML += `
                 <p>Wrong!</p>
             `;
@@ -245,15 +285,34 @@ function question5() {
         <br>
     `
     var answer = document.querySelector("#correct");
-    var incorrect = document.querySelector("#wrong");
+    var wrong1 = document.querySelector("#wrong1");
+    var wrong2 = document.querySelector("#wrong2");
+    var wrong3 = document.querySelector("#wrong3");
 
-    incorrect.addEventListener("click", function() {
-        if (incorrect) {
+    wrong1.addEventListener("click", function() {
+        if (wrong1) {
             main.innerHTML += `
                 <p>Wrong!</p>
             `;
             secondsLeft -= 10;
-            score = secondsLeft;
+        }
+        results(score);
+    });
+    wrong2.addEventListener("click", function() {
+        if (wrong2) {
+            main.innerHTML += `
+                <p>Wrong!</p>
+            `;
+            secondsLeft -= 10;
+        }
+        results(score);
+    });
+    wrong3.addEventListener("click", function() {
+        if (wrong3) {
+            main.innerHTML += `
+                <p>Wrong!</p>
+            `;
+            secondsLeft -= 10;
         }
         results(score);
     });
