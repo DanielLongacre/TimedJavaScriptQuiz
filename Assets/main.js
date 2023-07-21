@@ -168,6 +168,41 @@ function question4() {
                 <p>Wrong!</p>
             `;
         }
+        question5();
+    });
+
+}
+
+//Question 5 function
+function question5() {
+    var main = document.querySelector("#display");
+    main.innerHTML = ``;
+    main.innerHTML += `
+        <h1>A very useful tool used during development and debugging for printing content to the debugger is:</h1>
+        <ol>
+            <li><button id="wrong">JavaScript</button></li>
+            <li><button id="wrong">Terminal/Bash</button></li>
+            <li><button id="wrong">For Loops</button></li>
+            <li><button id="correct">Console Log</button></li>
+        </ol>
+        <br>
+    `
+    var answer = document.querySelector("#correct");
+    var incorrect = document.querySelector("#wrong");
+
+    answer.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        if(answer) {
+            main.innerHTML += `
+                <p>Correct!</p>
+            `;
+        } 
+        else if (incorrect) {
+            main.innerHTML += `
+                <p>Wrong!</p>
+            `;
+        }
     });
 
 }
