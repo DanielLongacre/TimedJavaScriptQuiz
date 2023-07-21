@@ -203,6 +203,23 @@ function question5() {
                 <p>Wrong!</p>
             `;
         }
+        results();
     });
+
+}
+
+//Results Page
+function results(score) {
+    var main = document.querySelector("#display");
+    main.innerHTML = ``;
+    main.innerHTML += `
+        <h1>All done!</h1>
+        <p>Your final score is ${score}</p>
+        
+            <label for="initials">Enter initials:</label>
+            <input type="text" id="initials">
+            <button id="submitScore">Submit</button>
+        
+    `
 
 }
