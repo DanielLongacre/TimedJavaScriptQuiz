@@ -1,5 +1,6 @@
+var home = document.querySelector("#home");
 var timer = document.querySelector("#timer");
-var body = document.querySelector("#display");
+var main = document.querySelector("#display");
 var startButton = document.querySelector("#start");
 
 timer.textContent = "Time: " + 75;
@@ -236,7 +237,15 @@ function highScores() {
     main.innerHTML += `
         <h1>Highscores</h1>
         <ol>
-            <li>This will be a list of top scores descneding in score</li>
+            <li>This will be a list of top scores descending in score</li>
         </ol>
+        <button id="homePage">Go back</button>
+        <button>Clear high scores</button>
     `
+
+    var homePage = document.querySelector("#homePage");
+
+    homePage.addEventListener("click", function() {
+        location.reload();
+    });
 }
