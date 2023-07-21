@@ -45,18 +45,38 @@ function question1() {
     main.innerHTML += `
         <h1>Commonly used data types DO NOT include:</h1>
         <ol>
-            <li><button id="wrong">Strings</button></li>
-            <li><button id="wrong">Booleans</button></li>
+            <li><button id="wrong1">Strings</button></li>
+            <li><button id="wrong2">Booleans</button></li>
             <li><button id="correct">Alerts</button></li>
-            <li><button id="wrong">Numbers</button></li>
+            <li><button id="wrong3">Numbers</button></li>
         </ol>
         <br>
     `
     var answer = document.querySelector("#correct");
-    var incorrect = document.querySelector("#wrong");
+    var wrong1 = document.querySelector("#wrong1");
+    var wrong2 = document.querySelector("#wrong2");
+    var wrong3 = document.querySelector("#wrong3");
 
-    incorrect.addEventListener("click", function() {
-        if (incorrect) {
+    wrong1.addEventListener("click", function() {
+        if (wrong1) {
+            main.innerHTML += `
+                <p>Wrong!</p>
+            `;
+            secondsLeft -= 10;
+        }
+        question2();
+    });
+    wrong2.addEventListener("click", function() {
+        if (wrong2) {
+            main.innerHTML += `
+                <p>Wrong!</p>
+            `;
+            secondsLeft -= 10;
+        }
+        question2();
+    });
+    wrong3.addEventListener("click", function() {
+        if (wrong3) {
             main.innerHTML += `
                 <p>Wrong!</p>
             `;
@@ -65,9 +85,7 @@ function question1() {
         question2();
     });
 
-    answer.addEventListener("click", function(event) {
-        event.preventDefault();
-
+    answer.addEventListener("click", function() {
         if(answer) {
             main.innerHTML += `
                 <p>Correct!</p>
@@ -105,9 +123,7 @@ function question2() {
         question3();
     });
 
-    answer.addEventListener("click", function(event) {
-        event.preventDefault();
-
+    answer.addEventListener("click", function() {
         if(answer) {
             main.innerHTML += `
                 <p>Correct!</p>
@@ -145,9 +161,7 @@ function question3() {
         question4();
     });
 
-    answer.addEventListener("click", function(event) {
-        event.preventDefault();
-
+    answer.addEventListener("click", function() {
         if(answer) {
             main.innerHTML += `
                 <p>Correct!</p>
@@ -185,9 +199,7 @@ function question4() {
         question5();
     });
 
-    answer.addEventListener("click", function(event) {
-        event.preventDefault();
-
+    answer.addEventListener("click", function() {
         if(answer) {
             main.innerHTML += `
                 <p>Correct!</p>
@@ -226,9 +238,7 @@ function question5() {
         results(score);
     });
 
-    answer.addEventListener("click", function(event) {
-        event.preventDefault();
-
+    answer.addEventListener("click", function() {
         if(answer) {
             main.innerHTML += `
                 <p>Correct!</p>
