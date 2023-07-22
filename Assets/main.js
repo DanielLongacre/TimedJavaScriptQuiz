@@ -296,7 +296,7 @@ function question5() {
             `;
             secondsLeft -= 10;
         }
-        results(score);
+        results();
     });
     wrong2.addEventListener("click", function() {
         if (wrong2) {
@@ -305,7 +305,7 @@ function question5() {
             `;
             secondsLeft -= 10;
         }
-        results(score);
+        results();
     });
     wrong3.addEventListener("click", function() {
         if (wrong3) {
@@ -314,7 +314,7 @@ function question5() {
             `;
             secondsLeft -= 10;
         }
-        results(score);
+        results();
     });
 
     answer.addEventListener("click", function() {
@@ -323,14 +323,14 @@ function question5() {
                 <p>Correct!</p>
             `;
         } 
-        score = secondsLeft;
-        results(score);
+        results();
     });
 
 }
 
 //Results Page
-function results(score) {
+function results() {
+    score = secondsLeft;
     var main = document.querySelector("#display");
     main.innerHTML = ``;
     main.innerHTML += `
@@ -341,9 +341,12 @@ function results(score) {
         <input type="text" id="initials">
         <button id="submitScore">Submit</button>
     `
+    var usersInitials = document.querySelector("#initials");
     var myScore = document.querySelector("#submitScore");
     
     myScore.addEventListener("click", function() {
+        localStorage.setItem("name", usersInitials.value);
+        localStorage.setItem("score", `${score}`);
         highScores();    
     });
 }
