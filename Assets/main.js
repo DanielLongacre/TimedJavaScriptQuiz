@@ -358,14 +358,18 @@ function results() {
 
 //High Scores Page
 function highScores() {
-    var listName = localStorage.getItem("name");
-    var listScore = localStorage.getItem("score");
+    var item = localStorage.getItem("newObj");
+    var obj = JSON.parse(item);
+    var listName = obj.name;
+
+    console.log(listName);
+
     var main = document.querySelector("#display");
     main.innerHTML = ``;
     main.innerHTML += `
         <h1>Highscores</h1>
         <ol>
-            <li>${listName} ${listScore}</li>
+            <li>${name} ${myScore}</li>
         </ol>
         <button id="homePage">Go back</button>
         <button id="clearBoard">Clear high scores</button>
@@ -390,5 +394,6 @@ function highScores() {
             <button id="homePage">Go back</button>
             <button id="clearBoard">Clear high scores</button>
         `
+        localStorage.clear();
     });
 }
