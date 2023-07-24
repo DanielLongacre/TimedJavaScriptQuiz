@@ -341,24 +341,31 @@ function results() {
         <input type="text" id="initials">
         <button id="submitScore">Submit</button>
     `
+    var submit = document.querySelector("#submitScore");
     var usersInitials = document.querySelector("#initials");
-    var myScore = document.querySelector("#submitScore");
-    
-    myScore.addEventListener("click", function() {
-        localStorage.setItem("name", usersInitials.value);
-        localStorage.setItem("score", `${score}`);
+    var newObj = {
+        name: JSON.stringify(usersInitials),
+        score: score
+    }
+
+    submit.addEventListener("click", function() {
+        newObj.name = document.getElementById('initials').value;
+        localStorage.setItem("newObj'", JSON.stringify(newObj));
         highScores();    
     });
+    score = 0;
 }
 
 //High Scores Page
 function highScores() {
+    var listName = localStorage.getItem("name");
+    var listScore = localStorage.getItem("score");
     var main = document.querySelector("#display");
     main.innerHTML = ``;
     main.innerHTML += `
         <h1>Highscores</h1>
         <ol>
-            <li>This will be a list of top scores descending in score</li>
+            <li>${listName} ${listScore}</li>
         </ol>
         <button id="homePage">Go back</button>
         <button id="clearBoard">Clear high scores</button>
@@ -371,7 +378,8 @@ function highScores() {
         location.reload();
     });
 
-    clearScores.addEventListener("click", function() {
+    clearScores.addEventListener("click", function(event) {
+        event.preventDefault();
         var main = document.querySelector("#display");
         main.innerHTML = ``;
         main.innerHTML += `
