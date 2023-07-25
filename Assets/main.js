@@ -40,7 +40,6 @@ startButton.addEventListener("click", function() {
 
 //Question 1 function
 function question1() {
-    var main = document.querySelector("#display");
     main.innerHTML = ``;
     main.innerHTML += `
         <h1>Commonly used data types DO NOT include:</h1>
@@ -98,7 +97,6 @@ function question1() {
 
 //Question 2 function
 function question2() {
-    var main = document.querySelector("#display");
     main.innerHTML = ``;
     main.innerHTML += `
         <h1>The condition in an if / else statement is enclosed with _______:</h1>
@@ -156,7 +154,6 @@ function question2() {
 
 //Question 3 function
 function question3() {
-    var main = document.querySelector("#display");
     main.innerHTML = ``;
     main.innerHTML += `
         <h1>Arrays in JavaScript can be used to store _______:</h1>
@@ -214,7 +211,6 @@ function question3() {
 
 //Question 4 function
 function question4() {
-    var main = document.querySelector("#display");
     main.innerHTML = ``;
     main.innerHTML += `
         <h1>String values must be enclosed within _______ when being assigned to variables:</h1>
@@ -272,7 +268,6 @@ function question4() {
 
 //Question 5 function
 function question5() {
-    var main = document.querySelector("#display");
     main.innerHTML = ``;
     main.innerHTML += `
         <h1>A very useful tool used during development and debugging for printing content to the debugger is:</h1>
@@ -331,7 +326,6 @@ function question5() {
 //Results Page
 function results() {
     score = secondsLeft;
-    var main = document.querySelector("#display");
     main.innerHTML = ``;
     main.innerHTML += `
         <h1>All done!</h1>
@@ -356,7 +350,6 @@ function results() {
         localStorage.setItem("newObj'", JSON.stringify(newObj));
         saveHighScores();    
     });
-    main.innerHTML = "";
 }
 
 var olTag = document.createElement("ol");
