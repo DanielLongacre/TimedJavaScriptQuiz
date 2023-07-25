@@ -7,8 +7,7 @@ var startButton = document.querySelector("#start");
 timer.textContent = "Time: " + 75;
 var secondsLeft = 75;
 
-//Setting score variable
-var score = 0;
+var called = false;
 
 function setTime() {
   // Sets interval in variable
@@ -21,6 +20,8 @@ function setTime() {
       clearInterval(timerInterval);
       // Calls function to list score
       results(0);
+    } else if (called) {
+        clearInterval(timerInterval);
     }
 
   }, 1000);
@@ -325,7 +326,9 @@ function question5() {
 
 //Results Page
 function results() {
+    called = true;
     score = secondsLeft;
+    secondsLeft += 1;
     main.innerHTML = ``;
     main.innerHTML += `
         <h1>All done!</h1>
