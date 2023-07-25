@@ -343,33 +343,39 @@ function results() {
     `
     var submit = document.querySelector("#submitScore");
     var usersInitials = document.querySelector("#initials");
+    var highScores = JSON.parse(localStorage.getItem("newObj")) || [];
     var newObj = {
         name: JSON.stringify(usersInitials),
         score: score
     }
 
+    highScores.push(newObj);
+
     submit.addEventListener("click", function() {
         newObj.name = document.getElementById('initials').value;
         localStorage.setItem("newObj'", JSON.stringify(newObj));
-        highScores();    
+        saveHighScores();    
     });
-    score = 0;
+    main.innerHTML = "";
 }
 
+var olTag = document.createElement("ol");
+
 //High Scores Page
-function highScores() {
-    var item = localStorage.getItem("newObj");
-    var obj = JSON.parse(item);
-    var listName = obj.name;
-
-    console.log(listName);
-
-    var main = document.querySelector("#display");
-    main.innerHTML = ``;
+function saveHighScores() {
+    var highScores = JSON.parse(localStorage.getItem("newObj")) || [];
+    for(var i = 0; i < highScores.length; i++) {
+        var obj = highScores[i];
+        var liTag = document.createElement("li");
+        
+        liTag.textContent = obj.name + ' - ' + obj.score;
+        olTag.appendChild(liTag);
+    }
+    
     main.innerHTML += `
         <h1>Highscores</h1>
         <ol>
-            <li>${name} ${myScore}</li>
+            <li>${obj.name} ${obj.score}</li>
         </ol>
         <button id="homePage">Go back</button>
         <button id="clearBoard">Clear high scores</button>
