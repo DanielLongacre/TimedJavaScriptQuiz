@@ -2,6 +2,13 @@ var home = document.querySelector("#home");
 var timer = document.querySelector("#timer");
 var main = document.querySelector("#display");
 var startButton = document.querySelector("#start");
+var viewHighScores = document.querySelector("#highScores a");
+
+//Click event for view high scores
+viewHighScores.addEventListener("click", function() {
+    saveHighScores();
+});
+
 
 //Setting timer
 timer.textContent = "Time: " + 75;
@@ -15,7 +22,7 @@ function setTime() {
     secondsLeft--;
     timer.textContent = "Time: " + secondsLeft;
 
-    if(secondsLeft === 0) {
+    if(secondsLeft <= 0) {
       // Stops execution of action at set interval
       clearInterval(timerInterval);
       // Calls function to list score
@@ -341,25 +348,39 @@ function results() {
     var submit = document.querySelector("#submitScore");
     var usersInitials = document.querySelector("#initials");
     var highScores = JSON.parse(localStorage.getItem("newObj")) || [];
+    console.log(highScores);
     var newObj = {
         name: JSON.stringify(usersInitials),
         score: score
     }
-
+    console.log(newObj);
     highScores.push(newObj);
 
     submit.addEventListener("click", function() {
         newObj.name = document.getElementById('initials').value;
-        localStorage.setItem("newObj'", JSON.stringify(newObj));
+        localStorage.setItem("newObj", JSON.stringify(highScores));
         saveHighScores();    
     });
 }
 
-var olTag = document.createElement("ol");
 
 //High Scores Page
 function saveHighScores() {
-    var highScores = JSON.parse(localStorage.getItem("newObj")) || [];
+    main.innerHTML = `
+        <h1>Highscores</h1>
+        <ol id="scoreList">
+            
+        </ol>
+        <button id="homePage">Go back</button>
+        <button id="clearBoard">Clear high scores</button>
+    `
+
+    var olTag = document.querySelector("#scoreList");
+    var highScores = JSON.parse(localStorage.getItem("newObj")).sort(function(a, b) {
+        return b.score - a.score;
+    }) || [];
+
+    console.log(highScores);
     for(var i = 0; i < highScores.length; i++) {
         var obj = highScores[i];
         var liTag = document.createElement("li");
@@ -368,17 +389,10 @@ function saveHighScores() {
         olTag.appendChild(liTag);
     }
     
-    main.innerHTML += `
-        <h1>Highscores</h1>
-        <ol>
-            <li>${obj.name} ${obj.score}</li>
-        </ol>
-        <button id="homePage">Go back</button>
-        <button id="clearBoard">Clear high scores</button>
-    `
     //Variables for buttons
     var homePage = document.querySelector("#homePage");
     var clearScores = document.querySelector("#clearBoard");
+
 
     homePage.addEventListener("click", function() {
         location.reload();
@@ -396,6 +410,13 @@ function saveHighScores() {
             <button id="homePage">Go back</button>
             <button id="clearBoard">Clear high scores</button>
         `
+
+        homePage = document.querySelector("#homePage");
+
         localStorage.clear();
+
+        homePage.addEventListener("click", function() {
+            location.reload();
+        });
     });
 }
