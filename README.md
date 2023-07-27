@@ -31,4 +31,8 @@ The following animation demonstrates the application functionality:
 
 ![A user clicks through an interactive coding quiz, then enters initials to save the high score before resetting and starting over.](./Assets/Images/04-web-apis-homework-demo.gif)
 
+![Actual Screenshot of finished product.](./Assets/Images/QuizScreenshot.png)
 
+## Deployed Site
+
+Click [here](https://daniellongacre.github.io/TimedJavaScriptQuiz/) to go to the Password Generator site.
